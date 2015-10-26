@@ -2,7 +2,7 @@
 
 ## Apa itu Rails ##
 
-Rails merupakan framework web yang dibuat dengan Ruby. Rails memiliki lisensi (MIT)[https://en.wikipedia.org/wiki/MIT_License] dan pertama kali dikembangkan oleh David Heinemeier Hansson pada tahun 2003.
+Rails merupakan framework web yang dibuat dengan Ruby. Rails memiliki lisensi [MIT](https://en.wikipedia.org/wiki/MIT_License) dan pertama kali dikembangkan oleh David Heinemeier Hansson pada tahun 2003.
 
 ### Sejarah Rails ###
 
@@ -11,8 +11,8 @@ Rails merupakan framework web yang dibuat dengan Ruby. Rails memiliki lisensi (M
 Pada modul ini, kita akan menginstall Ruby on Rails pada *Virtual Machine*. Tujuannya adalah memudahkan pembelajaran karena hanya akan ada satu sistem operasi yaitu Ubuntu Server versi 14.04.
 
 Langkah-langkah yang perlu kita lakukan adalah:
-1. Install (VirtualBox)[http://virtualbox.org] sebagai *Virtual Machine*.
-2. Install (Vagrant)[http://vagrantup.com]. Vagrant adalah alat yang memudahkan kita dalam menginstall banyak sistem operasi di virtual machine.
+1. Install [VirtualBox](http://virtualbox.org) sebagai *Virtual Machine*.
+2. Install [Vagrant](http://vagrantup.com). Vagrant adalah alat yang memudahkan kita dalam menginstall banyak sistem operasi di virtual machine.
 3. Install Ubuntu Server di VirtualBox dengan vagrant
 4. Login ke Guest Machine dengan SSH
 5. Update paket Ubuntu Server
@@ -24,17 +24,17 @@ Langkah-langkah yang perlu kita lakukan adalah:
 
 #### VirtualBox ####
 
-Download dan install (VirtualBox)[http://virtualbox.org]
+Download dan install [VirtualBox](http://virtualbox.org)
 
 #### Vagrant ####
 
-Download dan install (Vagrant)[http://vagrantup.com]. Setelah vagrant sukses terinstall maka perintah `vagrant` akan terintegrasi pada terminal atau command prompt.
+Download dan install [Vagrant](http://vagrantup.com). Setelah vagrant sukses terinstall maka perintah `vagrant` akan terintegrasi pada terminal atau command prompt.
 
 #### Install Ubuntu ####
 
-Sebelum menginstall Ubuntu Server di Virtual Machine, pilih terlebih dahulu berbagai macam *vagrant boxes* atau image sistem operasi yang sudah siap diunduh ke dalam Virtual Machine melalui (VagrantCloud)[https://atlas.hashicorp.com/boxes/search?utm_source=vagrantcloud.com&vagrantcloud=1]
+Sebelum menginstall Ubuntu Server di Virtual Machine, pilih terlebih dahulu berbagai macam *vagrant boxes* atau image sistem operasi yang sudah siap diunduh ke dalam Virtual Machine melalui [VagrantCloud](https://atlas.hashicorp.com/boxes/search?utm_source=vagrantcloud.com&vagrantcloud=1)
 
-Kali ini, kita akan menggunakan Ubuntu Trusty 14.04 versi 32 bit (Ubuntu/trusty32)[https://atlas.hashicorp.com/ubuntu/boxes/trusty32]. Mengapa Ubuntu Trusty 32 bit? Pertama Ubuntu Trusty adalah Ubuntu versi LTS atau Ubuntu dengan masa dukungan dari Canonical selama 5 tahun. 32-bit agar komputer dengan sumber daya terbatas masih dapat menjalankan Ubuntu Server dengan lancar. Cukup 512 MB RAM sudah bisa menjalankan Ruby on Rails dengan baik.
+Kali ini, kita akan menggunakan Ubuntu Trusty 14.04 versi 32 bit [Ubuntu/trusty32](https://atlas.hashicorp.com/ubuntu/boxes/trusty32). Mengapa Ubuntu Trusty 32 bit? Pertama Ubuntu Trusty adalah Ubuntu versi LTS atau Ubuntu dengan masa dukungan dari Canonical selama 5 tahun. 32-bit agar komputer dengan sumber daya terbatas masih dapat menjalankan Ubuntu Server dengan lancar. Cukup 512 MB RAM sudah bisa menjalankan Ruby on Rails dengan baik.
 
 Misalkan kita membuat folder `devel`
 

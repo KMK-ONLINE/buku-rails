@@ -10,7 +10,7 @@ Saat buku ini ditulis, versi stabil terbaru Ruby adalah versi 2.2.3. Ruby tersed
 
 ### Windows ###
 
-Cara termudah menjalankan Ruby di Windows adalah dengan mengunduh dan kemudian menginstall (RubyInstaller)[http://rubyinstaller.org/].
+Cara termudah menjalankan Ruby di Windows adalah dengan mengunduh dan kemudian menginstall [RubyInstaller](http://rubyinstaller.org/).
 
 ### Ubuntu ###
 
