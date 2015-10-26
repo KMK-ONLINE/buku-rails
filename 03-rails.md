@@ -11,6 +11,7 @@ Rails merupakan framework web yang dibuat dengan Ruby. Rails memiliki lisensi [M
 Pada modul ini, kita akan menginstall Ruby on Rails pada *Virtual Machine*. Tujuannya adalah memudahkan pembelajaran karena hanya akan ada satu sistem operasi yaitu Ubuntu Server versi 14.04.
 
 Langkah-langkah yang perlu kita lakukan adalah:
+
 1. Install [VirtualBox](http://virtualbox.org) sebagai *Virtual Machine*.
 2. Install [Vagrant](http://vagrantup.com). Vagrant adalah alat yang memudahkan kita dalam menginstall banyak sistem operasi di virtual machine.
 3. Install Ubuntu Server di VirtualBox dengan vagrant
