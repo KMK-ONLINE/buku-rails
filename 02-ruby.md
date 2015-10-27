@@ -179,7 +179,68 @@ Floats atau bilangan real. Adalah bilangan yang memiliki desimal. Di Ruby menggu
 4e+20                # sign sebelum exponential
 ```
 
+##### Strings #####
+
+Strings adalah rangkaian karakter.
+
+```ruby
+puts 'escape using "\\"';
+puts 'That\'s right';
+puts "Hasil perkalian : #{24*60*60}";
+```
+
+Output:
+
+    escape using "\"
+    That's right
+    Hasil perkalian : 86400
+
+Ekspresi Subtitusi
+
+```ruby
+x, y, z = 12, 36, 72
+puts "Nilai x adalah #{ x }."
+puts "Jumlah x dan y adalah #{ x + y }."
+puts "Rata-ratanya adalah #{ (x + y + z)/3 }."
+```
+
+Output:
+
+    Nilai x adalah 12.
+    Jumlah x dan y adalah 48.
+    Rata-ratanya adalah 40.
+
+Lihat [Dokumentasi String](http://ruby-doc.org/core-2.2.0/String.html) untuk lebih jelas dan detil.
+
+### Array ###
+
+Array adalah koleksi dari berbagai objek yang terurut dan memiliki indeks.
+
+```ruby
+nilai_ujian = [80, 90, 78, 95]
+nilai_ujian << 80 # tambah nilai 80 ke dalam array nilai_ujian
+
+nama_sd = %w{Sendy Windy Nani}
+nama_smp = ["Fauzi", "Masruchan", "Putri"]
+
+halo_nama_sd = nama_sd.map { |nama| "Halo #{nama}!" }
+
+puts "#{nilai_ujian}"
+puts "#{nama_sd}"
+puts "#{nama_smp}"
+puts "#{halo_nama_sd}"
+```
+
+Output:
+
+    [80, 90, 78, 95, 80]
+    ["Sendy", "Windy", "Nani"]
+    ["Fauzi", "Masruchan", "Putri"]
+    ["Halo Sendy!", "Halo Windy!", "Halo Nani!"]
+
 ### Conditional ###
+
+
 
 ### Looping ###
 
