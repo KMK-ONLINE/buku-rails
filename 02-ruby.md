@@ -4,6 +4,13 @@
 
 Ruby adalah bahasa pemrograman open source yang dinamis. Fokus Ruby adalah kesederhanaan dan produktivitas. Ruby bersifat multiparadigma yang berorientasi objek, imperatif, reflektif, dan fungsional.
 
+Menurut [Andrew Burgess](http://andrewburgess.ca/), seorang Developer berkebangsaan Kanada, koding di Ruby sangatlah menyenangkan. Beberapa keunggulan Ruby menurutnya yaitu:
+
+1. Ruby bersifat fleksibel.
+2. Ruby mudah dipelajari.
+3. Ruby memiliki banyak framework yang hebat.
+4. Ruby terlihat sederhana di permukaan namun sangat komplek di bawahnya.
+
 ## Instalasi Ruby ##
 
 Saat buku ini ditulis, versi stabil terbaru Ruby adalah versi 2.2.3. Ruby tersedia dan dapat dijalankan pada berbagai platform sistem operasi.
@@ -157,7 +164,7 @@ Gunakan indikator base 0 untuk oktal, 0x untuk hex, atau 0b untuk binari. Kita j
 
 ```ruby
 123                  # Fixnum decimal
-1_234                # Fixnum decimal with underline
+1_000_000            # Fixnum decimal dengan garis bawah -> satu juta
 -500                 # Negative Fixnum
 0377                 # octal
 0xff                 # hexadecimal
@@ -216,6 +223,13 @@ Lihat [Dokumentasi String](http://ruby-doc.org/core-2.2.0/String.html) untuk leb
 
 Array adalah koleksi dari berbagai objek yang terurut dan memiliki indeks.
 
+Membuat array kosong:
+
+    arrayku = Array.new
+    arrayku_yang_lain = []
+
+contoh penggunaan Array di Ruby:
+
 ```ruby
 nilai_ujian = [80, 90, 78, 95]
 nilai_ujian << 80 # tambah nilai 80 ke dalam array nilai_ujian
@@ -237,6 +251,39 @@ Output:
     ["Sendy", "Windy", "Nani"]
     ["Fauzi", "Masruchan", "Putri"]
     ["Halo Sendy!", "Halo Windy!", "Halo Nani!"]
+
+### Hashes ###
+
+Hash di Ruby mirip dengan *assosiative array* di PHP atau *object literal* di JavaScript. Hash mirip dengan Array.
+
+```ruby
+hash_ku = Hash.new
+hash_ku_yang_lain = {}
+
+# Untuk memberi nilai ke dalam hash gunakan notasi kurung siku. Bisa gunakan berbagai macam tipe data.
+
+hash_ku["Nama"] = "Andy"
+hash_ku[:umur] = 20
+
+puts hash_ku
+```
+
+Output:
+
+    {"Nama"=>"Andy", :umur=>20}
+
+Guna menempatkan objek ke dalam Hash, notasi yang digunakan hampir identik dengan *object literal* yang ada pada JavaScript. Perbedaannya di Ruby adalah menggunakan panah (`=>`) antara keys dan values.
+
+```ruby
+person = { :name => "Joe", :age => 35, :job => "plumber" }
+
+puts person
+```
+
+Output:
+
+    {:name=>"Joe", :age=>35, :job=>"plumber"}
+
 
 ### Conditional ###
 
