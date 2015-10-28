@@ -84,23 +84,23 @@ Setelah berhasil, maka kita login ke Guest Machine dengan perintah
 Ketika ssh, kita akan diminta sekali password. Passwordnya adalah vagrant. Berikut tampilan setelah berada di dalam vagrant box Ubuntu Trusty 32
 
     Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.13.0-66-generic x86_64)
-    \
+    
     * Documentation:  https://help.ubuntu.com/
-    \
+    
     System information as of Mon Oct 26 16:13:38 UTC 2015
-    \
+    
     System load:  0.0               Processes:           74
     Usage of /:   2.9% of 39.34GB   Users logged in:     0
     Memory usage: 7%                IP address for eth0: 10.0.2.15
     Swap usage:   0%                IP address for eth1: 192.168.33.11
-    \
+    
     Graph this data and manage this system at:
       https://landscape.canonical.com/
-    \
+    
     Get cloud support with Ubuntu Advantage Cloud Guest:
        http://www.ubuntu.com/business/services/cloud
-    \
-    \
+    
+    
     Last login: Mon Oct 26 16:13:38 2015 from 10.0.2.2
     vagrant@vagrant-ubuntu-trusty-32:~$
 
@@ -128,6 +128,14 @@ Selanjutnya jalankan perintah ini langkah demi langkah:
 ##### Install Database MySQL #####
     
     $ sudo apt-get install mysql-server mysql-client libmysqlclient-dev
+
+##### Install Database PostgreSQL #####
+
+    $ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-$ pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+    $ sudo apt-get install wget ca-certificates
+    $ sudo apt-get update
+    $ sudo apt-get upgrade
+    $ sudo apt-get install postgresql-9.4 postgresql-common
 
 ##### Install ImageMagick #####
 
