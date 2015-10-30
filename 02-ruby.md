@@ -219,7 +219,7 @@ Output:
 
 Lihat [Dokumentasi String](http://ruby-doc.org/core-2.2.0/String.html) untuk lebih jelas dan detil.
 
-### Array ###
+#### Array ####
 
 Array adalah koleksi dari berbagai objek yang terurut dan memiliki indeks.
 
@@ -252,7 +252,7 @@ Output:
     ["Fauzi", "Masruchan", "Putri"]
     ["Halo Sendy!", "Halo Windy!", "Halo Nani!"]
 
-### Hashes ###
+#### Hashes ####
 
 Hash di Ruby mirip dengan *assosiative array* di PHP atau *object literal* di JavaScript. Hash mirip dengan Array.
 
@@ -275,21 +275,248 @@ Output:
 Guna menempatkan objek ke dalam Hash, notasi yang digunakan hampir identik dengan *object literal* yang ada pada JavaScript. Perbedaannya di Ruby adalah menggunakan panah (`=>`) antara keys dan values.
 
 ```ruby
-person = { :name => "Joe", :age => 35, :job => "plumber" }
+person = { "name" => "Joe", "age" => 35, "job" => "plumber" }
 
 puts person
 ```
 
 Output:
 
-    {:name=>"Joe", :age=>35, :job=>"plumber"}
+    {"name"=>"Joe", "age"=>35, "job"=>"plumber"}
+
+#### Symbols ####
+
+Symbols mirip dengan string. Mereka ditempatkan sebagai identifier. Symbols digunakan menggantikan string karena menggunakan memory yang lebih sedikit. Untuk membuat symbol, cukup berikan titik dua (:) seperti pada contoh bagian Hash sebelumnya.
+
+```ruby
+konfigurasi = :username #username adalah symbol
+puts konfigurasi
+
+puts :password
+puts "password"
+```
+
+Output:
+
+    username
+    password
+    password
+
+### Statement Controls ###
+
+#### Conditional ####
+
+Disini kita belajar mengenai suatu kondisi. Di Ruby terdapat 4 macam statemen yaitu:
+
+1. Statemen if
+2. Statemen elseif
+3. Statemen unless
+4. Statemen case/when
+
+##### Statemen if #####
+
+Jika syarat dipenuhi atau bernilai *true* maka statemen yang berada di dalam blok akan dijalankan.
+
+```ruby
+nama = "Desty"
+
+if nama == "Desty"
+  puts "Halo #{nama}"
+end
+```
+
+Output:
+
+    Halo Desty
+
+Kita dapat menggunakan keyword `then` jika hanya membutuhkan satu baris dalam statemen `if`. Kode di atas dapat diubah menjadi:
+
+```ruby
+if nama == "Desty" then puts "Halo #{nama}"; end
+```
+
+Jangan lupa untuk menambahkan titik koma (;) jika dalam satu baris terdapat lebih dari satu statemen. Maka, setelah statemen `puts "Halo #{nama}"` diakhiri dengan titik koma (;) karena setelahnya ada penutup `end`
+
+##### Statemen elseif #####
+
+Jika syarat tidak dipenuhi maka blok statemen yang berada di blok else yang akan dijalankan.
+
+```ruby
+order = { :size => "medium" }
+
+if order[:size] == "small"
+    puts "Buat kopi ukuran kecil"
+elsif order[:size] == "medium"
+    puts "Buat kopi ukuran sedang"
+elsif order[:size] == "large"
+    puts "Buat kopi ukuran besar"
+else
+    puts "Belum memutuskan untuk membuat kopi"
+end
+```
+
+Output:
+
+    Buat kopi ukuran sedang
+
+##### Statemen unless #####
+
+Seperti pada kebanyakan bahasa pemrograman, Ruby memiliki negasi berupa (!). 
+
+```ruby
+mesin_nyala = false
+
+if !mesin_nyala
+  puts "Mesin sedang diservis"
+end
+```
+
+output:
+
+    Mesin sedang diservis
+
+Ruby memiliki operator `unless` sehingga kita tidak perlu memberikan negasi terhadap suatu kondisi. Kode di atas dapat diubah menjadi berikut
+
+```ruby
+mesin_nyala = false
+
+unless mesin_nyala
+  puts "Mesin sedang diservis"
+end
+```
+
+`unless` dapat digunakan sebagai *modifier* sehingga kode di atas dapat lebih disingkat menjadi
+
+```ruby
+puts "Mesin sedang diservis" unless mesin_nyala
+```
+
+Output:
+
+    Mesin sedang diservis
+
+##### Statemen case/when #####
+
+Statemen `case/when` di Ruby mirip dengan statemen `switch/case` di C/JavaScript/PHP.
+
+```ruby
+jam = 12
+
+case
+when jam < 10
+  puts "Selamat pagi"
+when jam >= 10 && jam < 14
+  puts "Selamat siang"
+when jam >= 14 && jam < 17
+  puts "Selamat sore"
+else
+  puts "Selamat malam"
+end
+```
+
+Output:
+
+    Selamat siang
+
+#### Looping ####
+
+##### While #####
+
+Blok statemen yang berada di dalam looping while akan terus dikerjakan hingga kondisi yang dinyatakan bernilai salah.
+
+```ruby
+arr = ["Ida", "Benyamin", "Slamet", "Safi'i"]
+i = 0 # counter awal
+
+while arr[i]
+  puts arr[i]
+  i += 1  # artinya sama seperti i = i + 1
+end
+```
+
+Output:
+
+    Ida
+    Benyamin
+    Slamet
+    Safi'i
+
+##### Until #####
+
+Sama sebagaimana `unless` yang merupakan lawan dari `if`, `until` adalah lawan dari `while`. Blok yang ada di dalam looping `until` akan terus dikerjakan sampai suatu kondisi yang dinyatakan bernilai benar.
+
+```ruby
+sisa_waktu = 7
+
+until sisa_waktu == 0
+  puts "masih ada #{sisa_waktu} hari untuk kamu selesaikan tugasnya"
+  sisa_waktu -= 1 # artinya sama seperti sisa_waktu = sisa_waktu - 1
+end
+```
+
+Output:
+
+    masih ada 7 hari untuk kamu selesaikan tugasnya
+    masih ada 6 hari untuk kamu selesaikan tugasnya
+    masih ada 5 hari untuk kamu selesaikan tugasnya
+    masih ada 4 hari untuk kamu selesaikan tugasnya
+    masih ada 3 hari untuk kamu selesaikan tugasnya
+    masih ada 2 hari untuk kamu selesaikan tugasnya
+    masih ada 1 hari untuk kamu selesaikan tugasnya
+
+Kita dapat menggunakan modifier untuk kode di atas sehingga menjadi
+
+```ruby
+sisa_waktu = 8
+puts "masih ada #{sisa_waktu -= 1} hari untuk kamu selesaikan tugasnya" until sisa_waktu == 1
+```
+
+output:
+
+    masih ada 7 hari untuk kamu selesaikan tugasnya
+    masih ada 6 hari untuk kamu selesaikan tugasnya
+    masih ada 5 hari untuk kamu selesaikan tugasnya
+    masih ada 4 hari untuk kamu selesaikan tugasnya
+    masih ada 3 hari untuk kamu selesaikan tugasnya
+    masih ada 2 hari untuk kamu selesaikan tugasnya
+    masih ada 1 hari untuk kamu selesaikan tugasnya
 
 
-### Conditional ###
+##### For #####
 
+Looping for di Ruby mirip dengan for each di PHP
 
+```ruby
+arr = ["Ida", "Benyamin", "Slamet", "Safi'i"]
 
-### Looping ###
+for orang in arr
+  puts orang
+end
+```
+
+Output:
+
+    Ida
+    Benyamin
+    Slamet
+    Safi'i
+
+Gunakan dua variabel ketika menggunakan for pada hash
+
+```ruby
+seniman = {"Ida" => "Penyanyi", "Benyamin" => "Pelawak", "Slamet" => "Pelukis", "Safi'i" => "Penyair"}
+
+for nama, karir in seniman
+  puts "#{nama} adalah seorang #{karir}"
+end
+```
+
+Output:
+
+    Ida adalah seorang Penyanyi
+    Benyamin adalah seorang Pelawak
+    Slamet adalah seorang Pelukis
+    Safi'i adalah seorang Penyair
 
 ### Block, Proc, dan Lambda ###
 
