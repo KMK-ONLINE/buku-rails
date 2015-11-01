@@ -219,6 +219,55 @@ Output:
 
 Lihat [Dokumentasi String](http://ruby-doc.org/core-2.2.0/String.html) untuk lebih jelas dan detil.
 
+> **Catatan**
+>
+> Pada dasarnya, variabel pada Ruby adalah objek sehingga bisa
+> variabel yang kita definisikan dan telah kita berikan
+> dapat diberikan method atau fungsi untuk mendapatkan suatu output
+> sesuai yang diinginkan.
+>
+> **Contoh**
+> Kita dapat konversi tipe data ke tipe data lain.
+> 
+> `a = 10`
+> `b = 1.2`
+> `c = [3, 4, 5]`
+> 
+> `puts a.to_f # Integer ke float`
+> `puts b.to_s # Float ke string`
+> `puts c.to_a.inspect # array ke string`
+> `a.class` # untuk mengetahui tipe data variabel `a`. Hasilnya adalah fixnum
+
+### Operator Logika dan Matematika ###
+
+| Operator | Arti                         |
+|----------|------------------------------|
+| `+`      | tambah                       |
+| `-`      | kurang                       |
+| `*`      | kali                         |
+| `/`      | bagi                         |
+| `%`      | modulus                      |
+| `**`     | pangkat                      |
+| `&`      | dan (bilangan berbasis 2)    |
+| `|`      | atau (bilangan berbasis 2)   |
+| `^`      | XOR (bilangan berbasis 2)    |
+| `~`      | invert bit (berbasis 2)      |
+| `<<`     | shift kiri (berbasis 2)      |
+| `>>`     | shift kanan (berbasis 2)     |
+| `&&`     | dan (Boolean)                |
+| `and`    | dan (Boolean)                |
+| `||`     | atau (Boolean)               |
+| `or`     | atau (Boolean)               |
+| `!`      | bukan (Boolean)              |
+| `not`    | bukan (Boolean)              |
+| `==`     | sama dengan                  |
+| `>`      | lebih dari                   |
+| `<`      | kurang dari                  |
+| `>=`     | lebih dari sama dengan       |
+| `>=`     | lebih dari atau sama dengan  |
+| `<=`     | kurang dari atau sama dengan |
+
+
 #### Array ####
 
 Array adalah koleksi dari berbagai objek yang terurut dan memiliki indeks.
@@ -517,6 +566,10 @@ Output:
     Benyamin adalah seorang Pelawak
     Slamet adalah seorang Pelukis
     Safi'i adalah seorang Penyair
+
+### Methods ###
+
+
 
 ### Block, Proc, dan Lambda ###
 
