@@ -569,7 +569,65 @@ Output:
 
 ### Methods ###
 
+Methods adalah serangkaian statemen yang melakukan pekerjaan untuk tujuan tertentu. Methods harus memiliki nama. Methods di Ruby diawali dengan keyword `def` dan diakhir dengan `end`.
 
+```ruby
+# halo adalah nama methods.
+def halo
+  puts "Halo! Selamat belajar Ruby"
+end
+
+halo  # memanggil methods yang telah didefinisikan sebelumnya.
+```
+
+Output:
+
+    Halo! Selamat belajar Ruby
+
+Apabila methods membutuhkan masukan untuk mendapatkan suatu hasil, maka kita dapat memberikan suatu variabel ke dalam methods. Variabel tersebut dinamakan argumen. Sebuah methods dapat memiliki satu atau lebih argumen. Berikut contoh sebuah method yang memiliki dua buah argumen.
+
+```ruby
+# method untuk menghitung luas segiempat
+# masukan panjang dan lebar
+def luas(panjang, lebar)
+  puts "Luas segiempat dengan panjang #{panjang} dan lebar #{lebar} adalah #{panjang*lebar}"
+end
+
+# ketika memanggil method luas, kita berikan nilai 5 sebagai panjang
+# dan 4 sebagai lebar
+luas(5, 4)
+# dan menggunakan methods yang sama dengan nilai panjang dan lebar yang lain
+luas(6,2)
+luas(6,3)
+```
+
+Output:
+
+    Luas segiempat dengan panjang 5 dan lebar 4 adalah 20
+    Luas segiempat dengan panjang 6 dan lebar 2 adalah 12
+    Luas segiempat dengan panjang 6 dan lebar 3 adalah 18
+
+Selain dapat kita dapat memberikan argumen, methods juga dapat mengembalikan data atau nilai. Kita gunakan keyword `return` di dalam def methods untuk mengembalikan data atau nilai.
+
+```ruby
+# method untuk menghitung luas segiempat
+# masukan panjang dan lebar
+def luas(panjang, lebar)
+  puts "Segiempat ini memiliki panjang #{panjang} dan lebar #{lebar}"
+  return panjang * lebar
+end
+
+# ketika memanggil method luas, maka method tersebut mengembalikan nilai luas.
+# Nilai tersebut bisa diberikan ke dalam variabel dan ditampilkan dengan `puts`
+l_segiempat = luas(4,5)
+
+puts "Luas Segiempat adalah #{l_segiempat}"
+```
+
+Output:
+
+    Segiempat ini memiliki panjang 4 dan lebar 5
+    Luas Segiempat adalah 20
 
 ### Block, Proc, dan Lambda ###
 
