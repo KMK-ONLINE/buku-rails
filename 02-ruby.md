@@ -629,7 +629,198 @@ Output:
     Segiempat ini memiliki panjang 4 dan lebar 5
     Luas Segiempat adalah 20
 
-### Block, Proc, dan Lambda ###
+### Block, Proc, Lambda, dan Method Object ###
+
+Cara kita mengelompokkan kode yang akan kita jalankan dinamakan *closure*. Berikut adalah *closure* di Ruby:
+
+1. Blocks
+2. Procedures atau Procs
+3. Lambdas
+
+#### Block ####
+
+Block adalah serangkaian kode yang dapat dieksekusi. Block bisa digunakan sebagai input ke dalam method. Block kadang-kadang disebut sebagai fungsi anonim karena tidak memiliki nama namun tingkahnya mirip dengan fungsi.
+
+Ada dua cara menulis sintaks block, yaitu dengan diawali `do` dan diakhiri `end` atau dengan menggunakan kurung kurawal `{}` jika hanya satu baris statemen.
+
+```ruby
+[1,2,3].each { |n| puts n }
+```
+
+Output:
+
+    1
+    2
+    3
+
+```ruby
+[1,2,3].each do |n|
+  puts n ** 2 # n pangkat 2
+end
+```
+
+    1
+    4
+    9
+
+Terdapat method `collect` yang menerapkan ekspresi di dalam block pada setiap elemen di dalam array.
+
+```ruby
+angka_ku = [1, 2, 3]
+angka_ku.collect { |n| puts n ** 2 }
+puts
+puts angka_ku
+```
+
+Output:
+
+     1
+     4
+     9
+
+     1
+     2
+     3
+
+Ketika block dijalankan nilai yang berada di dalam angka_ku tidak berubah. Namun apabila kita ingin merubahnya, kita dapat menggunakan tanda (!) menjadi `collect!` agar angka_ku ikut berubah nilainya.
+
+```ruby
+angka_ku = [1, 2, 3]
+angka_ku.collect! { |n| puts n ** 2 }
+puts
+puts angka_ku
+```
+
+Output:
+
+     1
+     4
+     9
+
+     1
+     4
+     9
+
+#### Proc ####
+
+Procedure atau Proc adalah adalah block yang kita simpan ke dalam variabel. Contoh menggunakan IRB:
+
+    irb(main):001:0> proc_ku = Proc.new { |arg1| print "#{arg1}!" }
+    => #<Proc:0x00000001d39d88@(irb):1>
+    irb(main):002:0> [1, 2, 3].each(&proc_ku)
+    1!2!3!=> [1, 2, 3]
+    irb(main):003:0> [1, 2, 3].each &proc_ku
+    1!2!3!=> [1, 2, 3]
+
+Proc adalah objek, sedangkan blok bukan
+
+```ruby
+p = Proc.new { puts "Halo dunia!" }
+
+p.call
+puts p.class
+
+a = p
+p
+```
+
+Output:
+
+    Halo dunia!
+    Proc
+    #<Proc:0x0000000101fc38@proc02.rb:1>
+    #<Proc:0x0000000101fc38@proc02.rb:1>
+
+Kita dapat memasukkan banyak proc sebagai daftar list ke dalam method
+
+```ruby
+def multiple_procs(proc1, proc2)
+  proc1.call
+  proc2.call
+end
+
+a = Proc.new { puts "Proc pertama" }
+b = Proc.new { puts "Proc kedua" }
+
+multiple_procs(a,b)
+```
+
+Output:
+
+    Proc pertama
+    Proc kedua
+
+#### Lambda ####
+
+Proc dan Lambda sama-sama object Proc.
+
+```ruby
+proc = Proc.new { puts "Halo Dunia!" }
+lam = lambda { puts "Halo Dunia!" }
+
+proc.class
+lam.class 
+
+puts proc
+puts lam
+```
+
+Output:
+
+    Proc
+    Proc
+    #<Proc:0x000000024a38f8@lambda.rb:1>
+    #<Proc:0x000000024a38d0@lambda.rb:2 (lambda)>
+
+Lalu apa yang membedakan Lambda dengan Proc?
+
+1. Lambda mengecek jumlah argumen
+
+```ruby
+lam = lambda { |x| puts x }    # hanya ada satu argumen
+lam.call(2)                    # outputnya 2
+lam.call                       # ArgumentError
+lam.call(1,2,3)                # ArgumentError
+```
+
+Sebaliknya di Proc tidak akan terjadi error
+
+```ruby
+proc = Proc.new { |x| puts x } # hanya ada satu argumen
+proc.call(2)                   # outputnya 2
+proc.call                      # outputnya nil
+proc.call(1,2,3)               # outputnya 1 dan menghiraukan argumen lainnya
+```
+
+2. Lambda dan Proc memperlakukan keyword `return` di dalam blok dengan berbeda
+
+```ruby
+def lambda_test
+  lam = lambda { return }
+  lam.call
+  puts "Halo Dunia!"
+end
+
+lambda_test
+```
+
+Output:
+
+    Halo Dunia!
+
+`return` yang berada di dalam proc akan memicu kode yang berada di luar method di mana proc dieksekusi
+
+```ruby
+def proc_test
+  proc = Proc.new { return }
+  proc.call
+  puts "Halo Dunia!"
+end
+
+proc_test 
+```
+
+Outputnya tidak ada sama sekali
 
 Referensi :
 http://www.eriktrautman.com/posts/ruby-explained-blocks-procs-and-lambdas-aka-closures
